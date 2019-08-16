@@ -2,7 +2,7 @@
 angular.module('ngCheckers', [])
 
   .controller('checkersCtrl', function($scope, $timeout) { 
-    var RED = "Red", BLACK = "Black", BOARD_WIDTH = 8,
+    var RED = "Cops", BLACK = "Pot", BOARD_WIDTH = 8,
         selectedSquare = null;
 
     function Piece(player, x, y) {
