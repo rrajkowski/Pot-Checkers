@@ -1,2 +1,2 @@
-# Simple-Checkers
-Simple Checkers
+# Weed-Checkers
+Weed Checkers
