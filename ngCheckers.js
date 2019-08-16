@@ -35,13 +35,17 @@ angular.module('ngCheckers', [])
     }
     $scope.newGame();
 
+
+    var redbg = "url('img/sirenpiece.png')";
+    var blackbg = "url('img/potpiece.png')";
     $scope.setStyling = function(square) {
+
       if (square.player === RED)
-        return {"backgroundColor": "#FF0000"};
+        return {"backgroundImage": redbg};
       else if (square.player === BLACK)
-        return {"backgroundColor":"#A3A3A3"};
-      return {"backgroundColor": "none"};
-    }
+        return {"backgroundImage": blackbg};
+      return {"backgroundImage": "none"};
+    };
 
     $scope.setClass = function(square) {
       if (square.y % 2 === 0) {

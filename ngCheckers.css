@@ -27,7 +27,6 @@
 	color: black;
 	text-align: center;
 	line-height: 56px;
-	background-image: url(https://icon-library.net/images/weed-icon/weed-icon-22.jpg);
 	background-size: 95% 95%;
 	background-position: center center;
 }
@@ -43,10 +42,17 @@
 	margin-top: 10px;
 	text-align: center;
 	background-color: black;
-	color: white;
+	color:white;
+}
+.bg-pot{
+	background-image: url(./img/potpiece.png);
+}
+.bg-cop{
+	background-image: url(./img/sirenpiece.png);
 }
 
 #startGame:hover {
 	color: red;
 	cursor: pointer;
+
 }
