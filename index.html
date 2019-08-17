@@ -2,6 +2,7 @@
 <html ng-app='ngCheckers'>
 
   <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="ngCheckers.css">
   </head> 
 
@@ -11,8 +12,8 @@
       <div>
           <div class="row" ng-repeat="row in board">
               <div class="square" ng-style="setClass(square)" ng-repeat="square in row track by $index" ng-click="select(square)">
-                <div ng-style="setStyling(square)" class="circle">
-                  <span>{{square.isKing ? 'K' : ''}}</span>
+                <div ng-style="setStyling(square)" class="circle {{square.isKing ? 'isKing' : ''}}" >
+                  <span></span>
                 </div>
               </div>
           </div>

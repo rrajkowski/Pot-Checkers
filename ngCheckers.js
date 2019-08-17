@@ -2,7 +2,7 @@
 angular.module('ngCheckers', [])
 
   .controller('checkersCtrl', function($scope, $timeout) { 
-    var RED = "Cops", BLACK = "Pot", BOARD_WIDTH = 8,
+    let RED = "Cops", BLACK = "Pot", BOARD_WIDTH = 8,
         selectedSquare = null;
 
     function Piece(player, x, y) {
@@ -20,9 +20,9 @@ angular.module('ngCheckers', [])
       $scope.blackScore = 0;
 
       $scope.board = [];
-      for (var i = 0; i < BOARD_WIDTH; i++) {
+      for (let i = 0; i < BOARD_WIDTH; i++) {
         $scope.board[i] = [];
-        for (var j = 0; j < BOARD_WIDTH; j++) {
+        for (let j = 0; j < BOARD_WIDTH; j++) {
           if ( (i === 0 &&  j % 2 === 0) || (i === 1 && j % 2 === 1) ) {
             $scope.board[i][j] = new Piece(BLACK, j, i);
           } else if ( (i === BOARD_WIDTH - 2 && j % 2 === 0) || (i === BOARD_WIDTH - 1 && j % 2 === 1) ){
@@ -36,8 +36,8 @@ angular.module('ngCheckers', [])
     $scope.newGame();
 
 
-    var redbg = "url('img/sirenpiece.png')";
-    var blackbg = "url('img/potpiece.png')";
+    let redbg = "url('img/sirenpiece.png')";
+    let blackbg = "url('img/potpiece.png')";
     $scope.setStyling = function(square) {
 
       if (square.player === RED)
@@ -79,8 +79,8 @@ angular.module('ngCheckers', [])
 
     function resetChoices() {
       // Reset Choices
-      for (var i = 0; i < BOARD_WIDTH; i++) {
-        for (var j = 0; j < BOARD_WIDTH; j++) {
+      for (let i = 0; i < BOARD_WIDTH; i++) {
+        for (let j = 0; j < BOARD_WIDTH; j++) {
           $scope.board[i][j].isChoice = false;
           $scope.board[i][j].matados = [];
         }
@@ -89,10 +89,10 @@ angular.module('ngCheckers', [])
 
     function movePiece(square) {
       if (square.isChoice) {
-        var becomeKing = selectedSquare.isKing;
+        let becomeKing = selectedSquare.isKing;
         // Jump dude
-        for (var i = 0; i < square.matados.length; i++) {
-          var matado = square.matados[i];
+        for (let i = 0; i < square.matados.length; i++) {
+          let matado = square.matados[i];
           jump(matado);
           becomeKing = becomeKing || becomeKingAfterJump(matado.x, matado.y);
         }
@@ -107,7 +107,8 @@ angular.module('ngCheckers', [])
 
     function isKing(square) {
       if ($scope.player === RED) {
-        if (square.y === 0) 
+        if (square.y === 0)
+
           return true;
       } else {
         if (square.y === BOARD_WIDTH - 1)
@@ -152,14 +153,14 @@ angular.module('ngCheckers', [])
       if ($scope.player === RED || isKing) {
         // Upper Left
         if (x > 0 && y > 0) {
-          var UP_LEFT = $scope.board[y-1][x-1];
+          let UP_LEFT = $scope.board[y-1][x-1];
           if (UP_LEFT.player) {
             if (UP_LEFT.player !== $scope.player) {
               if ((x > 1 && y > 1) && !(x - 2 === oldX && y - 2 === oldY)) {
-                var UP_LEFT_2 = $scope.board[y-2][x-2];
+                let UP_LEFT_2 = $scope.board[y-2][x-2];
                 if (!UP_LEFT_2.player) {
                   UP_LEFT_2.isChoice = true;
-                  var jumpers = matados.slice(0);
+                  let jumpers = matados.slice(0);
                   if (jumpers.indexOf(UP_LEFT) === -1)
                     jumpers.push(UP_LEFT);
                   UP_LEFT_2.matados = jumpers;
@@ -174,14 +175,14 @@ angular.module('ngCheckers', [])
 
         // Upper Right
         if (x < BOARD_WIDTH - 1 && y > 0) {
-          var UP_RIGHT = $scope.board[y-1][x+1];
+          let UP_RIGHT = $scope.board[y-1][x+1];
           if (UP_RIGHT.player) {
             if (UP_RIGHT.player !== $scope.player) {
               if ((x < BOARD_WIDTH - 2 && y > 1) && !(x + 2 === oldX && y - 2 === oldY)) {
-                var UP_RIGHT_2 = $scope.board[y-2][x+2];
+                let UP_RIGHT_2 = $scope.board[y-2][x+2];
                 if (!UP_RIGHT_2.player) {
                   UP_RIGHT_2.isChoice = true;
-                  var jumpers = matados.slice(0);
+                  let jumpers = matados.slice(0);
                   if (jumpers.indexOf(UP_RIGHT) === -1)
                     jumpers.push(UP_RIGHT);
                   UP_RIGHT_2.matados = jumpers;
@@ -199,14 +200,14 @@ angular.module('ngCheckers', [])
       if ($scope.player === BLACK || isKing) {
         // Lower Left
         if (x > 0 && y < BOARD_WIDTH - 1) {
-          var LOWER_LEFT = $scope.board[y+1][x-1];
+          let LOWER_LEFT = $scope.board[y+1][x-1];
           if (LOWER_LEFT.player) {
             if (LOWER_LEFT.player !== $scope.player) {
               if ((x > 1 && y < BOARD_WIDTH - 2) && !(x - 2 === oldX && y + 2 === oldY)) {
-                var LOWER_LEFT_2 = $scope.board[y+2][x-2];
+                let LOWER_LEFT_2 = $scope.board[y+2][x-2];
                 if (!LOWER_LEFT_2.player) {
                   LOWER_LEFT_2.isChoice = true;
-                  var jumpers = matados.slice(0);
+                  let jumpers = matados.slice(0);
                   if (jumpers.indexOf(LOWER_LEFT) === -1)
                     jumpers.push(LOWER_LEFT);
                   LOWER_LEFT_2.matados = jumpers;
@@ -221,14 +222,14 @@ angular.module('ngCheckers', [])
 
         // Lower Right
         if (x < BOARD_WIDTH - 1 && y < BOARD_WIDTH - 1) {
-          var LOWER_RIGHT = $scope.board[y+1][x+1];
+          let LOWER_RIGHT = $scope.board[y+1][x+1];
           if (LOWER_RIGHT.player) {
             if (LOWER_RIGHT.player !== $scope.player) {
               if ((x < BOARD_WIDTH - 2 && y < BOARD_WIDTH - 2) && !(x + 2 === oldX && y + 2 === oldY)) {
-                var LOWER_RIGHT_2 = $scope.board[y+2][x+2];
+                let LOWER_RIGHT_2 = $scope.board[y+2][x+2];
                 if (!LOWER_RIGHT_2.player) {
                   LOWER_RIGHT_2.isChoice = true;
-                  var jumpers = matados.slice(0);
+                  let jumpers = matados.slice(0);
                   if (jumpers.indexOf(LOWER_RIGHT) === -1)
                     jumpers.push(LOWER_RIGHT);
                   LOWER_RIGHT_2.matados = jumpers;

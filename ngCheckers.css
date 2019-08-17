@@ -56,3 +56,106 @@
 	cursor: pointer;
 
 }
+
+.isKing{
+	background-color:gold;
+}
+
+/* #### Mobile Phones Portrait #### */
+@media screen and (max-device-width: 480px) and (orientation: portrait){
+	#gameContainer {
+		width: 240px;
+		height: 240px;
+	}
+	.square {
+		width: 30px;
+		height: 30px;
+	}
+
+}
+
+/* #### Mobile Phones Landscape #### */
+@media screen and (max-device-width: 640px) and (orientation: landscape){
+	#gameContainer {
+		width: 480px;
+		height: 480px;
+	}
+	.square {
+		width: 60px;
+		height: 60px;
+	}
+}
+
+/* #### Mobile Phones Portrait or Landscape #### */
+@media screen and (max-device-width: 640px){
+	#gameContainer {
+		width: 480px;
+		height: 480px;
+	}
+	.square {
+		width: 60px;
+		height: 60px;
+	}
+}
+
+/* #### iPhone 4+ Portrait or Landscape #### */
+@media screen and (min-device-width: 320px) and (-webkit-min-device-pixel-ratio: 2){
+	#gameContainer {
+		width: 240px;
+		height: 240px;
+	}
+	.square {
+		width: 30px;
+		height: 30px;
+	}
+}
+
+/* #### iPhone 5 Portrait or Landscape #### */
+@media (device-height: 568px) and (device-width: 320px) and (-webkit-min-device-pixel-ratio: 2){
+	#gameContainer {
+		width: 240px;
+		height: 240px;
+	}
+	.square {
+		width: 30px;
+		height: 30px;
+	}
+}
+
+/* #### iPhone 6 and 6 plus Portrait or Landscape #### */
+@media (min-device-height: 667px) and (min-device-width: 375px) and (-webkit-min-device-pixel-ratio: 3){
+	#gameContainer {
+		width: 240px;
+		height: 240px;
+	}
+	.square {
+		width: 30px;
+		height: 30px;
+	}
+}
+
+/* #### Tablets Portrait or Landscape #### */
+@media screen and (min-device-width: 768px) and (max-device-width: 1024px){
+	/* some CSS here */
+	#gameContainer {
+		width: 480px;
+		height: 480px;
+	}
+	.square {
+		width: 60px;
+		height: 60px;
+	}
+}
+
+/* #### Desktops #### */
+@media screen and (min-width: 1024px){
+	/* some CSS here */
+	#gameContainer {
+		width: 480px;
+		height: 480px;
+	}
+	.square {
+		width: 60px;
+		height: 60px;
+	}
+}
